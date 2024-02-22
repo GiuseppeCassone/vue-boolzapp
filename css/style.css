@@ -5,6 +5,7 @@
 }
 /* RESET */
 
+/* STRUTTURA SOTTOSTANTE */
 .container{
     position: relative;
     background-color: #D8DBD5;
@@ -16,13 +17,61 @@ header{
     background-color: #009688;
 }
 
+/* MAIN */
 .chat-container{
+    display: flex;
     position: absolute;
     top: 25px;
     left: 50%;
     transform: translateX(-50%);
     width: 1200px;
-    height: 950px;
+    height: 680px;
+    margin-bottom: 25px;
 
     background-color: #EAEAEA;
+    border: 1px solid grey;
 }
+
+.br-bottom{
+    border-bottom: 1px solid rgb(176, 176, 176);
+}
+
+/* COLONNA SINISTRA CON I PROFILI */
+.col-left{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    border-right: 1px solid rgb(176, 176, 176);
+}
+
+.my-profile{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;  
+    width: 100%;
+
+    height: 80px;
+    /* TEST */
+}
+
+.notices{
+    width: 100%;
+    background-color: #8EDAFC;
+
+    height: 100px;
+    /* TEST */
+}
+
+.search-bar{
+    height: 50px;
+}
+
+.chat-box{
+    overflow-y: scroll;
+}
+
+.chat{
+    background-color: white;
+    height: 100px;
+}
+
