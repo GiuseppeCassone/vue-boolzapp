@@ -111,4 +111,11 @@ img{
     background-color: #F3EEEA;
 }
 
+.icon-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 10%;
+    color: lightslategray;
+}
 
