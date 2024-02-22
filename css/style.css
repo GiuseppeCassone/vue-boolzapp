@@ -22,10 +22,11 @@ header{
     display: flex;
     position: absolute;
     top: 25px;
+    bottom: 25px;
     left: 50%;
     transform: translateX(-50%);
-    width: 1200px;
-    height: 700px;
+    width: 80%;
+    height: calc(100vh - 50px);
     margin-bottom: 25px;
 
     background-color: #EAEAEA;
@@ -104,13 +105,11 @@ img{
 }
 
 .sent{
-    justify-content: flex-end;
     background-color: #D5F9BA;
     padding: 10px 5px;
 }
 
 .received{
-    justify-content: flex-start;
     background-color: white;
     padding: 10px 5px;
 }
@@ -130,5 +129,9 @@ img{
 
 .active{
     background-color: grey;
+}
+
+.message-box{
+    overflow-wrap: break-word;
 }
 

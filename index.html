@@ -80,8 +80,8 @@
 
                     <div class="message-area p-5" v-for="(activeChat, index) in contacts" v-show="index == activeContactIndex">
                         
-                        <div v-for="(message, index) in activeChat.messages" class="d-flex" :class="message.status == `sent` ? ` sent` : ` received`">
-                             <p class="rounded-2 p-3">{{ message.message }}</p>
+                        <div v-for="(message, index) in activeChat.messages" class="d-flex" :class="message.status == `sent` ? ` justify-content-end ` : ` justify-content-start`">
+                             <p class="rounded-2 p-3 w-50 message-box" :class="message.status == `sent` ? ` sent` : ` received`">{{ message.message }}</p>
                         </div>
                       
                     </div>
