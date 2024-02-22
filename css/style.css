@@ -3,3 +3,26 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* RESET */
+
+.container{
+    position: relative;
+    background-color: #D8DBD5;
+}
+
+header{
+    width: 100%;
+    height: 150px;
+    background-color: #009688;
+}
+
+.chat-container{
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1200px;
+    height: 950px;
+
+    background-color: #EAEAEA;
+}
