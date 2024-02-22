@@ -49,9 +49,9 @@
                     <div class="chat-box">
 
                         <div v-for="(contact, index) in contacts" class="chat br-bottom d-flex p-3">
-                            <img class="me-2" src="./img/avatar_io.jpg" alt="">
+                            <img class="me-2" :src="contact.avatar" alt="">
                             <div class="d-flex flex-column my-chat-name">
-                                <span class="fw-bold">Giuseppe</span>
+                                <span class="fw-bold">{{ contact.name }}</span>
                                 <span class="my-span">Ultimo messaggio inviato</span>
                             </div>
                             <div><span class="my-span">12:00</span></div>
