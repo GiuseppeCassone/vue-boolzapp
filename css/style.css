@@ -103,12 +103,14 @@ img{
     background-image: url(../img/mine.jpg);
 }
 
-.received{
+.sent{
+    justify-content: flex-end;
     background-color: #D5F9BA;
     padding: 10px 5px;
 }
 
-.sent{
+.received{
+    justify-content: flex-start;
     background-color: white;
     padding: 10px 5px;
 }
@@ -124,5 +126,9 @@ img{
     align-items: center;
     width: 10%;
     color: lightslategray;
+}
+
+.active{
+    background-color: grey;
 }
 

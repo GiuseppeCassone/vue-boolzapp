@@ -20,6 +20,8 @@ createApp({
     data() {
         return {
             
+            activeContactIndex: "",
+
             contacts: [
                 {
                     name: 'Michele',
@@ -187,8 +189,9 @@ createApp({
         }
     },
 
-
-
-
-
+    methods: {
+        showConversation(index) {
+            this.activeContactIndex = index;
+        }
+    }
 }).mount("#app");

@@ -49,9 +49,9 @@
 
                     <div class="chat-box">
 
-                        <div v-for="(contact, index) in contacts" class="chat br-bottom d-flex p-3">
+                        <div v-for="(contact, index) in contacts" @click="showConversation(index)" class="chat br-bottom d-flex p-3" :class="index == activeContactIndex ? ` active` : ``">
                             <img class="me-2" :src="contact.avatar" :alt="contact.name">
-                            <div class="d-flex flex-column my-chat-name">
+                            <div class="d-flex flex-column">
                                 <span class="fw-bold">{{ contact.name }}</span>
                                 <span class="my-span">Ultimo messaggio inviato</span>
                             </div>
@@ -65,29 +65,25 @@
 
                     <div class="header-profile br-bottom p-2">
 
-                        <div class="my-img">
-                            <img class="me-2" src="./img/avatar_io.jpg" alt="">
-                            <span class="fw-bold">Giuseppe</span>
+                        <div class="my-img" v-for="(contact, index) in contacts" v-show="index == activeContactIndex">
+                            <img class="me-2" :src="contact.avatar" alt="">
+                            <span class="fw-bold">{{ contact.name }}</span>
                         </div>
 
                         <div class="my-options px-3 d-flex gap-3 justify-content-center align-items-center">
-                            <i class="fa-solid fa-circle-notch fs-5"></i>
-                            <i class="fa-solid fa-message fs-5"></i>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <i class="fa-solid fa-paperclip"></i>
                             <i class="fa-solid fa-ellipsis-vertical fs-5"></i>
                         </div>
 
                     </div>
 
-                    <div class="message-area d-flex gap-5 p-5">
-
-                        <div class="message-sent w-50">
-                            <p class="sent rounded-2 p-3">ciao!</p>
+                    <div class="message-area p-5" v-for="(activeChat, index) in contacts" v-show="index == activeContactIndex">
+                        
+                        <div v-for="(message, index) in activeChat.messages" class="d-flex" :class="message.status == `sent` ? ` sent` : ` received`">
+                             <p class="rounded-2 p-3">{{ message.message }}</p>
                         </div>
-
-                       <div class="message-received w-50">
-                            <p class="received rounded-2 p-3">ciao!</p>
-                       </div>                     
-
+                      
                     </div>
 
                     <div class="message-footer d-flex align-items-center w-100">
