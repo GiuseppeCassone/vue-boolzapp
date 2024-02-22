@@ -89,10 +89,6 @@ header{
     height: 100px;
 }
 
-.my-chat-name{
-    flex-grow: 1;
-}
-
 img{
     height: 100%;
     border-radius: 50%;
@@ -103,7 +99,18 @@ img{
 }
 
 .message-area{
+    height: calc(100% - 60px - 60px);
     background-image: url(../img/mine.jpg);
+}
+
+.received{
+    background-color: #D5F9BA;
+    padding: 10px 5px;
+}
+
+.sent{
+    background-color: white;
+    padding: 10px 5px;
 }
 
 .message-footer{

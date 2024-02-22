@@ -46,10 +46,11 @@
                             <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Cerca o inizia una nuova chat" aria-describedby="basic-addon1">
                           </div>
                     </div>
+
                     <div class="chat-box">
 
                         <div v-for="(contact, index) in contacts" class="chat br-bottom d-flex p-3">
-                            <img class="me-2" :src="contact.avatar" alt="">
+                            <img class="me-2" :src="contact.avatar" :alt="contact.name">
                             <div class="d-flex flex-column my-chat-name">
                                 <span class="fw-bold">{{ contact.name }}</span>
                                 <span class="my-span">Ultimo messaggio inviato</span>
@@ -61,28 +62,45 @@
                 </div>
 
                 <div class="col-right d-flex flex-column">
+
                     <div class="header-profile br-bottom p-2">
+
                         <div class="my-img">
                             <img class="me-2" src="./img/avatar_io.jpg" alt="">
                             <span class="fw-bold">Giuseppe</span>
                         </div>
+
                         <div class="my-options px-3 d-flex gap-3 justify-content-center align-items-center">
                             <i class="fa-solid fa-circle-notch fs-5"></i>
                             <i class="fa-solid fa-message fs-5"></i>
                             <i class="fa-solid fa-ellipsis-vertical fs-5"></i>
                         </div>
+
                     </div>
 
-                    <div class="message-area flex-grow-1"></div>
+                    <div class="message-area d-flex gap-5 p-5">
+
+                        <div class="message-sent w-50">
+                            <p class="sent rounded-2 p-3">ciao!</p>
+                        </div>
+
+                       <div class="message-received w-50">
+                            <p class="received rounded-2 p-3">ciao!</p>
+                       </div>                     
+
+                    </div>
 
                     <div class="message-footer d-flex align-items-center w-100">
+
                         <div class="icon-div">
                             <i class="fa-regular fa-face-smile fs-4"></i>
                         </div>
+
                         <div class="input-group">
                             <input type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label="Scrivi un messaggio" aria-describedby="button-addon2">
                             <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-paper-plane"></i></button>
                         </div>
+
                         <div class="icon-div">
                             <i class="fa-solid fa-microphone fs-4"></i>
                         </div>
