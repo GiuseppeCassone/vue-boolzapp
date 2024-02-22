@@ -20,7 +20,7 @@ createApp({
     data() {
         return {
             
-            activeContactIndex: "",
+            activeContactIndex: 0,
 
             contacts: [
                 {
@@ -192,6 +192,26 @@ createApp({
     methods: {
         showConversation(index) {
             this.activeContactIndex = index;
+        },
+
+        sendMessage(){
+            const newMessage = {
+                date: new Date().toLocaleString(),
+                message: this.newMessage,
+                status: `sent`
+            };
+            this.contacts[this.activeContactIndex].messages.push(newMessage);
+
+            setTimeout(() => {
+                const response = {
+                    date: new Date().toLocaleString(),
+                    message: `OK!`,
+                    status: `received`
+                };
+                this.contacts[this.activeContactIndex].messages.push(response);
+        }, 1000);
+
+        this.newMessage = ``;
         }
-    }
+    },
 }).mount("#app");

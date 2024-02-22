@@ -102,6 +102,7 @@ img{
 .message-area{
     height: calc(100% - 60px - 60px);
     background-image: url(../img/mine.jpg);
+    overflow-y: auto;
 }
 
 .sent{

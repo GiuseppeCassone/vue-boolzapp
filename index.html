@@ -30,9 +30,9 @@
 
                         </div>
                         <div class="my-options d-flex gap-3 justify-content-center align-items-center">
-                            <i class="fa-solid fa-circle-notch fs-5"></i>
-                            <i class="fa-solid fa-message fs-5"></i>
-                            <i class="fa-solid fa-ellipsis-vertical fs-5"></i>
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
                     </div>
 
@@ -73,7 +73,7 @@
                         <div class="my-options px-3 d-flex gap-3 justify-content-center align-items-center">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <i class="fa-solid fa-paperclip"></i>
-                            <i class="fa-solid fa-ellipsis-vertical fs-5"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
 
                     </div>
@@ -93,8 +93,8 @@
                         </div>
 
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Scrivi un messaggio" aria-label="Scrivi un messaggio" aria-describedby="button-addon2">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fa-solid fa-paper-plane"></i></button>
+                            <input type="text" class="form-control" @keyup.enter="sendMessage" placeholder="Scrivi un messaggio" aria-label="Scrivi un messaggio" aria-describedby="button-addon2" v-model="newMessage">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="sendMessage"><i class="fa-solid fa-paper-plane"></i></button>
                         </div>
 
                         <div class="icon-div">
