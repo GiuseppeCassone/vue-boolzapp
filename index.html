@@ -51,7 +51,7 @@
 
                         <div v-for="(contact, index) in contacts" @click="showConversation(index)" class="chat br-bottom d-flex p-3" :class="index == activeContactIndex ? ` active` : ``">
                             <img class="me-2" :src="contact.avatar" :alt="contact.name">
-                            <div class="d-flex flex-column">
+                            <div class="d-flex flex-column flex-grow-1">
                                 <span class="fw-bold">{{ contact.name }}</span>
                                 <span class="my-span">Ultimo messaggio inviato</span>
                             </div>
@@ -65,9 +65,9 @@
 
                     <div class="header-profile br-bottom p-2">
 
-                        <div class="my-img" v-for="(contact, index) in contacts" v-show="index == activeContactIndex">
-                            <img class="me-2" :src="contact.avatar" alt="">
-                            <span class="fw-bold">{{ contact.name }}</span>
+                        <div class="my-img">
+                            <img class="me-2" :src="activeContactIndex.avatar" alt="">
+                            <span class="fw-bold">{{ activeContactIndex.name }}</span>
                         </div>
 
                         <div class="my-options px-3 d-flex gap-3 justify-content-center align-items-center">
@@ -78,9 +78,9 @@
 
                     </div>
 
-                    <div class="message-area p-5" v-for="(activeChat, index) in contacts" v-show="index == activeContactIndex">
+                    <div class="message-area p-5">
                         
-                        <div v-for="(message, index) in activeChat.messages" class="d-flex" :class="message.status == `sent` ? ` justify-content-end ` : ` justify-content-start`">
+                        <div v-for="(message, index) in activeContactIndex.messages" class="d-flex" :class="message.status == `sent` ? ` justify-content-end ` : ` justify-content-start`">
                              <p class="rounded-2 p-3 w-50 message-box" :class="message.status == `sent` ? ` sent` : ` received`">{{ message.message }}</p>
                         </div>
                       
