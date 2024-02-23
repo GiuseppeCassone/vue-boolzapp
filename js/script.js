@@ -223,7 +223,7 @@ createApp({
     },
 
     computed: {
-        filterChatName(contact){
+        filterChatName(){
             return this.contacts.filter(contact => {
                 return contact.name.toLowerCase().includes(this.searchBarText.toLowerCase());
             });

@@ -58,9 +58,9 @@
                             <img class="me-2" :src="contact.avatar" :alt="contact.name">
                             <div class="d-flex flex-column flex-grow-1">
                                 <span class="fw-bold">{{ contact.name }}</span>
-                                <span class="my-span">Ultimo messaggio inviato</span>
+                                <span class="my-span">{{ contact.messages[contact.messages.length - 1].message }}</span>
                             </div>
-                            <div><span class="my-span">12:00</span></div>
+                            <div><span class="my-span">{{ contact.messages[contact.messages.length - 1].date }}</span></div>
                         </div>
                        
                     </div>
