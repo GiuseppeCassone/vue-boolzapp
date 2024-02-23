@@ -97,13 +97,9 @@
                             <i class="fa-regular fa-face-smile fs-4"></i>
                         </div>
 
-                        <div class="input-group">
-                            <input type="text" class="form-control" @keyup.enter="sendMessage" placeholder="Scrivi un messaggio" aria-label="Scrivi un messaggio" aria-describedby="button-addon2" v-model="newMessage">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="sendMessage"><i class="fa-solid fa-paper-plane"></i></button>
-                        </div>
-
-                        <div class="icon-div">
-                            <i class="fa-solid fa-microphone fs-4"></i>
+                        <div class="input-group pe-3">
+                            <input type="text" class="form-control" @input="isTyping = true" @keyup.enter="sendMessage" placeholder="Scrivi un messaggio" aria-label="Scrivi un messaggio" aria-describedby="button-addon2" v-model="newMessage">
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="sendMessage" @click="isTyping ? sendMessage() : newMassage"><i class="fa-solid" :class="sendMessageOptions"></i></button>
                         </div>
 
                     </div>

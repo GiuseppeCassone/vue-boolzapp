@@ -187,6 +187,7 @@ createApp({
             
             activeContactIndex: {},
             searchBarText: ``,
+            isTyping: false,
         }
     },
 
@@ -208,6 +209,7 @@ createApp({
                 status: `sent`
             };
             this.activeContactIndex.messages.push(newMessage);
+            this.isTyping = false;
 
             setTimeout(() => {
                 const response = {
@@ -227,6 +229,10 @@ createApp({
             return this.contacts.filter(contact => {
                 return contact.name.toLowerCase().includes(this.searchBarText.toLowerCase());
             });
+        },
+
+        sendMessageOptions() {
+            return this.isTyping ? `fa-solid fa-paper-plane` : `fa-solid fa-microphone`;
         }
     }
 }).mount("#app");
