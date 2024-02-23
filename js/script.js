@@ -20,7 +20,6 @@ createApp({
     data() {
         return {
             
-            activeContactIndex: 0,
 
             contacts: [
                 {
@@ -186,16 +185,20 @@ createApp({
                 }
             ],            
             
+            activeContactIndex: {},
+            searchBarText: ``,
         }
     },
 
     mounted() {
-        this.activeContactIndex = 0;
+        this.activeContactIndex = this.contacts[0];
     },
 
     methods: {
         showConversation(index) {
-            this.activeContactIndex = index;
+            const principalIndex = this.contacts.indexOf(this.filterChatName[index]);
+
+            this.activeContactIndex = this.contacts[principalIndex];
         },
 
         sendMessage(){
@@ -204,7 +207,7 @@ createApp({
                 message: this.newMessage,
                 status: `sent`
             };
-            this.contacts[this.activeContactIndex].messages.push(newMessage);
+            this.activeContactIndex.messages.push(newMessage);
 
             setTimeout(() => {
                 const response = {
@@ -212,10 +215,18 @@ createApp({
                     message: `OK!`,
                     status: `received`
                 };
-                this.contacts[this.activeContactIndex].messages.push(response);
+                this.activeContactIndex.messages.push(response);
         }, 1000);
 
         this.newMessage = ``;
-        }
+        },
     },
+
+    computed: {
+        filterChatName(contact){
+            return this.contacts.filter(contact => {
+                return contact.name.toLowerCase().includes(this.searchBarText.toLowerCase());
+            });
+        }
+    }
 }).mount("#app");
