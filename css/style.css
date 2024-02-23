@@ -69,6 +69,13 @@ header{
 
 .fa-bell-slash{
     color: #8EDAFC;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.notices div{
+    font-size: 14px;
 }
 
 .search-bar{
@@ -133,6 +140,15 @@ img{
 }
 
 .message-box{
+    position: relative;
     overflow-wrap: break-word;
+}
+
+.message-box span{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    font-size: 10px;
+    color: grey;
 }
 

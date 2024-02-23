@@ -20,7 +20,7 @@ createApp({
     data() {
         return {
             
-            activeContactIndex: {},
+            activeContactIndex: 0,
 
             contacts: [
                 {
@@ -190,12 +190,12 @@ createApp({
     },
 
     mounted() {
-        this.activeContactIndex = this.contacts[0]
+        this.activeContactIndex = 0;
     },
 
     methods: {
         showConversation(index) {
-            this.activeContactIndex = this.contacts[index];
+            this.activeContactIndex = index;
         },
 
         sendMessage(){
