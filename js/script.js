@@ -222,6 +222,13 @@ createApp({
 
         this.newMessage = ``;
         },
+
+        deleteMessage(message) {
+            const indexMessage = this.activeContactIndex.messages.indexOf(message);
+            if (indexMessage !== -1) {
+            this.activeContactIndex.messages.splice(indexMessage, 1);
+            }
+        }
     },
 
     computed: {

@@ -152,3 +152,14 @@ img{
     color: grey;
 }
 
+.dropdown-toggle{
+    position: absolute;
+    top: 0;
+    right: 5px;
+    display: none;
+}
+
+.message-card:hover .dropdown-toggle{
+    display: block;
+}
+
