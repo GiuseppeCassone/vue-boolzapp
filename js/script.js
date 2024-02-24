@@ -196,12 +196,14 @@ createApp({
     },
 
     methods: {
+        // Funzione che permette di visualizzare le conversazioni corrette
         showConversation(index) {
             const principalIndex = this.contacts.indexOf(this.filterChatName[index]);
 
             this.activeContactIndex = this.contacts[principalIndex];
         },
 
+        // Funzione che permette di inviare un messaggio e ricevere una risposta
         sendMessage(){
             const newMessage = {
                 date: new Date().toLocaleString(),
@@ -223,10 +225,12 @@ createApp({
 
         },
 
+        // Funzione che permette di eliminare i messaggi
         deleteMessage(contact, messageIndex) {
             contact.messages.splice(messageIndex, 1)
         },
 
+        // Funzione che permette di convertire l'orario dei messaggi in ore e minuti soltanto
         getMessageTime(message) {
             const messageDate = message.date.split(" ")[1]
             return messageDate.split(":").slice(0, 2).join(":");
@@ -235,12 +239,15 @@ createApp({
     },
 
     computed: {
+
+        // Funzione che permette di filtrare le chat in base alle parole digitate nella search bar
         filterChatName(){
             return this.contacts.filter(contact => {
                 return contact.name.toLowerCase().includes(this.searchBarText.toLowerCase());
             });
         },
 
+        // Funzione per cambiare l'icona in base al fatto che l'utente digiti nella barra dei nuovi messaggi
         sendMessageOptions() {
             return this.isTyping ? `fa-solid fa-paper-plane` : `fa-solid fa-microphone`;
         }

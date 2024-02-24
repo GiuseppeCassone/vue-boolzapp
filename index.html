@@ -66,10 +66,12 @@
                     </div>
                 </div>
 
+                <!-- SEZIONE CON LA CHAT CORRENTE -->
                 <div class="col-right d-flex flex-column">
 
                     <div class="header-profile br-bottom p-2">
 
+                        <!-- SEZIONE PROFILO CORRENTE -->
                         <div class="my-img">
                             <img class="me-2" :src="activeContactIndex.avatar" alt="">
                             <span class="fw-bold">{{ activeContactIndex.name }}</span>
@@ -83,6 +85,7 @@
 
                     </div>
 
+                    <!-- SEZIONE CHAT CORRENTE -->
                     <div class="message-area p-5">
                         
                         <div v-for="(message, index) in activeContactIndex.messages" class="d-flex position-relative message-card" :class="message.status == `sent` ? ` justify-content-end ` : ` justify-content-start`">
@@ -97,6 +100,7 @@
                       
                     </div>
 
+                    <!-- SEZIONE CON BARRA DI INVIO MESSAGGI -->
                     <div class="message-footer d-flex align-items-center w-100">
 
                         <div class="icon-div">
