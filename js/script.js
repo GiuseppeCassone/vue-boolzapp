@@ -209,6 +209,7 @@ createApp({
                 status: `sent`
             };
             this.activeContactIndex.messages.push(newMessage);
+            this.newMessage = ``;
             this.isTyping = false;
 
             setTimeout(() => {
@@ -220,14 +221,16 @@ createApp({
                 this.activeContactIndex.messages.push(response);
         }, 1000);
 
-        this.newMessage = ``;
         },
 
-        deleteMessage(message) {
-            const indexMessage = this.activeContactIndex.messages.indexOf(message);
-            if (indexMessage !== -1) {
-            this.activeContactIndex.messages.splice(indexMessage, 1);
-            }
+        deleteMessage(contact, messageIndex) {
+            contact.messages.splice(messageIndex, 1)
+        },
+
+        getMessageTime(message) {
+            const messageDate = message.date.split(" ")[1]
+            return messageDate.split(":").slice(0, 2).join(":");
+            
         }
     },
 

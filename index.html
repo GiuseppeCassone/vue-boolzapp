@@ -60,7 +60,7 @@
                                 <span class="fw-bold">{{ contact.name }}</span>
                                 <span class="my-span">{{ contact.messages[contact.messages.length - 1].message }}</span>
                             </div>
-                            <div><span class="my-span">{{ contact.messages[contact.messages.length - 1].date }}</span></div>
+                            <div><span class="my-span">{{ getMessageTime(contact.messages[contact.messages.length - 1])}}</span></div>
                         </div>
                        
                     </div>
@@ -86,11 +86,11 @@
                     <div class="message-area p-5">
                         
                         <div v-for="(message, index) in activeContactIndex.messages" class="d-flex position-relative message-card" :class="message.status == `sent` ? ` justify-content-end ` : ` justify-content-start`">
-                             <p class="rounded-2 p-3 w-50 message-box" :class="message.status == `sent` ? ` sent` : ` received`">{{ message.message }}<span>{{ message.date }}</span></p>
+                             <p class="rounded-2 p-3 w-50 message-box" :class="message.status == `sent` ? ` sent` : ` received`">{{ message.message }}<span>{{ getMessageTime(message) }}</span></p>
                              <div class="dropdown">
                                 <button class="dropdown-toggle border-0 bg-transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
                                 <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" @click="deleteMessage(message)" href="#">Elimina messaggio</a></li>
+                                  <li><a class="dropdown-item" @click="deleteMessage(activeContactIndex, index)" href="#">Elimina messaggio</a></li>
                                 </ul>
                               </div>
                         </div>
