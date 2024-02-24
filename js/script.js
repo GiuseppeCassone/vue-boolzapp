@@ -207,23 +207,28 @@ createApp({
 
         // Funzione che permette di inviare un messaggio e ricevere una risposta
         sendMessage(){
-            const newMessage = {
-                date: new Date().toLocaleString(),
-                message: this.newMessage,
-                status: `sent`
-            };
-            this.activeContactIndex.messages.push(newMessage);
-            this.newMessage = ``;
-            this.isTyping = false;
 
-            setTimeout(() => {
-                const response = {
+            if(this.newMessage.length != 0 && this.newMessage.trim()) {
+
+                const newMessage = {
                     date: new Date().toLocaleString(),
-                    message: `OK!`,
-                    status: `received`
+                    message: this.newMessage,
+                    status: `sent`
                 };
-                this.activeContactIndex.messages.push(response);
-        }, 1000);
+                this.activeContactIndex.messages.push(newMessage);
+                this.newMessage = ``;
+                this.isTyping = false;
+    
+                setTimeout(() => {
+                    const response = {
+                        date: new Date().toLocaleString(),
+                        message: `OK!`,
+                        status: `received`
+                    };
+                    this.activeContactIndex.messages.push(response);
+            }, 1000);
+
+            }
 
         },
 
