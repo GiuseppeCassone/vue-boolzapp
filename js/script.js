@@ -188,12 +188,13 @@ createApp({
             activeContactIndex: {},
             searchBarText: ``,
             isTyping: false,
+            predefinedMessage: true,
         }
     },
 
-    mounted() {
-        this.activeContactIndex = this.contacts[0];
-    },
+    // mounted() {
+    //     this.activeContactIndex = this.contacts[0];
+    // },
 
     methods: {
         // Funzione che permette di visualizzare le conversazioni corrette
@@ -201,6 +202,7 @@ createApp({
             const principalIndex = this.contacts.indexOf(this.filterChatName[index]);
 
             this.activeContactIndex = this.contacts[principalIndex];
+            this.predefinedMessage = false;
         },
 
         // Funzione che permette di inviare un messaggio e ricevere una risposta
