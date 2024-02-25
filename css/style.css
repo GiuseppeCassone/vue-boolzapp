@@ -154,6 +154,12 @@ img{
     overflow-y: auto;
 }
 
+.my_scroll_btn{
+    position: absolute;
+    bottom: 70px;
+    right: 18px;
+}
+
 .sent{
     background-color: #D5F9BA;
     padding: 10px 5px;

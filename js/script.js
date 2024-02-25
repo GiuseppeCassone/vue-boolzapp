@@ -223,6 +223,7 @@ createApp({
                 this.activeContactIndex.messages.push(newMessage);
                 this.newMessage = ``;
                 this.isTyping = false;
+                this.scrollToBottom();
     
                 setTimeout(() => {
                     const response = {
@@ -231,11 +232,26 @@ createApp({
                         status: `received`
                     };
                     this.activeContactIndex.messages.push(response);
+                    this.scrollToBottom();
+                    
             }, 1000);
 
             }
 
         },
+
+        scrollToBottom() {
+            const targetRef = this.$refs.myScrollTarget;
+            this.$nextTick(() => {
+              targetRef.scrollTo(
+                {
+                  top: targetRef.scrollHeight,
+                  left: 0,
+                  behavior: "smooth"
+                }
+              );
+            });
+          },
 
         // Funzione che permette di eliminare i messaggi
         deleteMessage(contact, messageIndex) {

@@ -100,25 +100,27 @@
 
                     </div>
 
+                    <!-- SEZIONE CON MESSAGGIO PREDEFINITO -->
+                    <div v-if="predefinedMessage == true" class="bg-light d-flex align-items-center justify-content-center default-message">
+                    </div>
                     <!-- SEZIONE CHAT CORRENTE -->
-                    <div class="message-area">
+                    <div class="message-area p-5" ref="myScrollTarget" v-else="">
 
-                        <!-- SEZIONE CON MESSAGGIO PREDEFINITO -->
-                        <div v-if="predefinedMessage == true" class="bg-light d-flex align-items-center justify-content-center default-message">
-                        </div>
                         
-                        <div v-else="" v-for="(message, index) in activeContactIndex.messages" class="d-flex position-relative message-card px-5" :class="message.status == `sent` ? ` justify-content-end ` : ` justify-content-start`">
-                             <p class="rounded-2 p-3 w-50 message-box" :class="message.status == `sent` ? ` sent` : ` received`">{{ message.message }}<span>{{ getMessageTime(message) }}</span></p>
-                             <div class="dropdown">
+                        
+                        <div v-for="(message, index) in activeContactIndex.messages" class="d-flex position-relative message-card" :class="message.status == `sent` ? ` justify-content-end ` : ` justify-content-start`">
+                            <p class="rounded-2 p-3 w-50 message-box" :class="message.status == `sent` ? ` sent` : ` received`">{{ message.message }}<span>{{ getMessageTime(message) }}</span></p>
+                            <div class="dropdown">
                                 <button class="dropdown-toggle border-0 bg-transparent" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
                                 <ul class="dropdown-menu">
-                                  <li><a class="dropdown-item" @click="deleteMessage(activeContactIndex, index)" href="#">Elimina messaggio</a></li>
+                                    <li><a class="dropdown-item" @click="deleteMessage(activeContactIndex, index)" href="#">Elimina messaggio</a></li>
                                 </ul>
-                              </div>
+                            </div>
                         </div>
-                      
+                        
+                        <button type="button" @click="scrollToBottom()" class="btn btn-light rounded-2 my_scroll_btn"><i class="fa-solid fa-angles-down"></i></button>
                     </div>
-
+                    
                     <!-- SEZIONE CON BARRA DI INVIO MESSAGGI -->
                     <div class="message-footer d-flex align-items-center w-100">
 
