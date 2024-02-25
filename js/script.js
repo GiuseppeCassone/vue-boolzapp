@@ -191,9 +191,11 @@ createApp({
             isTyping: false,
             predefinedMessage: true,
             visibleSplash: true,
+
+            randomResponseArray: ["Onii-chan!", "Yamete kudasai", "Nani?", "Gomen nasai", "Sayonara! Mata ashita ne.", "Watashi wa Kira da", "Itsuka Hokage ni naru"],
+            
         }
     },
-
     mounted() {
         // this.activeContactIndex = this.contacts[0];
         setTimeout(() => {
@@ -209,6 +211,7 @@ createApp({
             this.activeContactIndex = this.contacts[principalIndex];
             this.predefinedMessage = false;
         },
+
 
         // Funzione che permette di inviare un messaggio e ricevere una risposta
         sendMessage(){
@@ -226,20 +229,22 @@ createApp({
                 this.scrollToBottom();
     
                 setTimeout(() => {
+                    const randomIndexResponse = Math.floor(Math.random() * this.randomResponseArray.length);
                     const response = {
                         date: new Date().toLocaleString(),
-                        message: `OK!`,
+                        message: this.randomResponseArray[randomIndexResponse],
                         status: `received`
                     };
                     this.activeContactIndex.messages.push(response);
                     this.scrollToBottom();
                     
-            }, 1000);
+            },Math.random() * 3000 + 1000);
 
             }
-
+           
         },
-
+        
+        // Funzione che permette di scrollare immediatamente al fondo della chat
         scrollToBottom() {
             const targetRef = this.$refs.myScrollTarget;
             this.$nextTick(() => {
@@ -255,6 +260,7 @@ createApp({
 
         // Funzione che permette di eliminare i messaggi
         deleteMessage(contact, messageIndex) {
+            console.log("index:", messageIndex)
             contact.messages.splice(messageIndex, 1)
         },
 
@@ -263,7 +269,8 @@ createApp({
             const messageDate = message.date.split(" ")[1]
             return messageDate.split(":").slice(0, 2).join(":");
             
-        }
+        },
+
     },
 
     computed: {
