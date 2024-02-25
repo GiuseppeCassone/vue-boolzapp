@@ -186,15 +186,20 @@ createApp({
             ],            
             
             activeContactIndex: {},
+            newMessage: ``,
             searchBarText: ``,
             isTyping: false,
             predefinedMessage: true,
+            visibleSplash: true,
         }
     },
 
-    // mounted() {
-    //     this.activeContactIndex = this.contacts[0];
-    // },
+    mounted() {
+        // this.activeContactIndex = this.contacts[0];
+        setTimeout(() => {
+            this.visibleSplash = false;
+        }, 3000);
+    },
 
     methods: {
         // Funzione che permette di visualizzare le conversazioni corrette

@@ -13,7 +13,10 @@
 
     <div id="app">
 
-        <div class="my-container">
+        <!-- SPLASH SCREEN -->
+        <div id="splash-screen" v-show="visibleSplash"></div>
+
+        <div class="my-container" v-show="!visibleSplash">
 
             <header></header>
 
