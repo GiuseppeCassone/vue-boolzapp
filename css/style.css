@@ -6,15 +6,47 @@
 /* RESET */
 
 /* STRUTTURA SOTTOSTANTE */
+
+/* SPLASH SCREEN */
 #splash-screen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
-    width: 100vw;
-    height: 100vh;
-    background-image: url(../img/whatsapp-dispositivo.jpg);
+    width: 100%;
+    height: 100%;
+    background-color: #009688;
 }
+
+.waviy {
+    position: relative;
+    -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
+    font-size: 60px;
+    font-weight: bold;
+  }
+
+.waviy span {
+    font-family: 'Alfa Slab One', cursive;
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    text-transform: uppercase;
+    animation: waviy 1s infinite;
+    animation-delay: calc(.1s * var(--i));
+    
+}
+@keyframes waviy {
+    0%,40%,100% {
+      transform: translateY(0)
+    }
+    20% {
+      transform: translateY(-20px)
+    }
+}
+/* /SPLASH SCREEN */
 
 .my-container{
     position: relative;
