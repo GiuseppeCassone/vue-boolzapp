@@ -87,13 +87,17 @@
                 <!-- SEZIONE CON LA CHAT CORRENTE -->
                 <div class="col-right d-flex flex-column">
 
-                    <div class="header-profile br-bottom p-2">
+                    <div class="header-profile br-bottom p-2 d-flex">
 
                         <!-- SEZIONE PROFILO CORRENTE -->
                         <div class="my-img">
                             <img class="me-2" :src="activeContactIndex.avatar" alt="">
-                            <span class="fw-bold">{{ activeContactIndex.name }}</span>
                         </div>
+                            <div class="d-flex flex-grow-1 flex-column justify-content-start">                            
+                                <span class="fw-bold">{{ activeContactIndex.name }}</span>
+                                <span class="my-span">{{ activeContactIndex.status }}</span>
+                            </div>
+                        
 
                         <div class="my-options px-3 d-flex gap-3 justify-content-center align-items-center">
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -110,7 +114,7 @@
                     <div class="message-area p-5" ref="myScrollTarget" v-else>
 
                         <div class="current-chat w-100 h-100">
-                            
+
                             <div  v-for="(currentMessage, index) in activeContactIndex.messages" class="d-flex position-relative message-card" :class="currentMessage.status == `sent` ? ` justify-content-end ` : ` justify-content-start`">
                                 <p class="rounded-2 p-3 w-50 message-box" :class="currentMessage.status == `sent` ? ` sent` : ` received`">{{ currentMessage.message }}<span>{{ getMessageTime(currentMessage) }}</span></p>
                                 <div class="dropdown">

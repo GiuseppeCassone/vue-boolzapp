@@ -26,6 +26,7 @@ createApp({
                     name: 'Michele',
                     avatar: './img/avatar_1.jpg',
                     visible: true,
+                    activity: '',
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -220,6 +221,8 @@ createApp({
 
             if(this.newMessage.length != 0 && this.newMessage.trim()) {
 
+                actualUser.status = 'sta scrivendo...';
+
                 const newMessage = {
                     date: new Date().toLocaleString(),
                     message: this.newMessage,
@@ -238,7 +241,16 @@ createApp({
                         status: `received`
                     };
                     actualUser.messages.push(response);
+                    actualUser.status = 'online';
                     this.scrollToBottom();
+
+                    // Funzione che permette di visualizzare l'ultimo accesso dell'utente in chat
+                    setTimeout(() => {
+                        const now = new Date();
+                        const hours = now.getHours().toString().padStart(2, '0');
+                        const minutes = now.getMinutes().toString().padStart(2, '0');
+                        actualUser.status = `ultimo accesso alle ${hours}:${minutes}`;
+                    }, 5000);
                     
             },Math.random() * 3000 + 1000);
 
