@@ -277,6 +277,20 @@ createApp({
             contact.messages.splice(messageIndex, 1)
         },
 
+        // Funzione che permette di eliminare tutti i messaggi di una chat
+        deleteAllMessages(contact) {
+            contact.messages.splice(0, contact.messages.length);
+        },
+
+        // Funzione che permette di eliminare la chat intera
+        deleteChat(contact) {
+            const index = this.contacts.indexOf(contact);
+            if (index > -1) {
+                this.contacts.splice(index, 1);
+                this.activeContactIndex = {}; // Deseleziona il contatto attivo
+            }
+        },
+
         // Funzione che permette di convertire l'orario dei messaggi in ore e minuti soltanto
         getMessageTime(message) {
             const messageDate = message.date.split(" ")[1]
