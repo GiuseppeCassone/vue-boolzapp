@@ -72,7 +72,7 @@ header{
     height: calc(100vh - 50px);
     margin-bottom: 25px;
     
-    background-color: #EAEAEA;
+    background-color: #f6f5f5;
     border: 1px solid grey;
 }
 
@@ -223,7 +223,7 @@ img{
     display: block;
 }
 
-
+/* DARK-MODE */
 .dark-mode{
     background-color: #222;
     color: #fff;
@@ -265,6 +265,26 @@ img{
 
 .dark-mode .fa-bell-slash{
     background-color: #555;
+}
+
+/* MEDIA QUERY */
+@media screen and (max-width: 992px) {
+    .my-container {
+        font-size: 10px;
+    }
+
+    .notices div{
+        font-size: 10px;
+    }
+
+    img{
+        height: 80%;
+    }
+
+    .my-span{
+        font-size: 8px;
+    }
+
 }
 
 
