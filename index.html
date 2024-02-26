@@ -109,7 +109,8 @@
                     <!-- SEZIONE CHAT CORRENTE -->
                     <div class="message-area p-5" ref="myScrollTarget" v-else>
 
-                        <template v-if="activeContactIndex && activeContactIndex.messages" class="current-chat w-100 h-100">
+                        <div class="current-chat w-100 h-100">
+                            
                             <div  v-for="(currentMessage, index) in activeContactIndex.messages" class="d-flex position-relative message-card" :class="currentMessage.status == `sent` ? ` justify-content-end ` : ` justify-content-start`">
                                 <p class="rounded-2 p-3 w-50 message-box" :class="currentMessage.status == `sent` ? ` sent` : ` received`">{{ currentMessage.message }}<span>{{ getMessageTime(currentMessage) }}</span></p>
                                 <div class="dropdown">
@@ -120,7 +121,7 @@
                                 </div>
                             </div>
 
-                        </template>
+                        </div>
                         
                         
                         <button type="button" @click="scrollToBottom()" class="btn btn-light rounded-2 my_scroll_btn"><i class="fa-solid fa-angles-down"></i></button>

@@ -192,7 +192,7 @@ createApp({
             predefinedMessage: true,
             visibleSplash: true,
 
-            randomResponseArray: ["Onii-chan!", "Yamete kudasai", "Nani?", "Gomen nasai", "Sayonara! Mata ashita ne.", "Watashi wa Kira da", "Itsuka Hokage ni naru"],
+            randomResponseArray: ["Onii-chan!", "Yamete kudasai", "Nani?", "Gomen nasai", "Sayonara! Mata ashita ne.", "Watashi wa Kira da", "Itsuka Hokage ni naru", "Yokatta"],
             
         }
     },
@@ -216,6 +216,8 @@ createApp({
         // Funzione che permette di inviare un messaggio e ricevere una risposta
         sendMessage(){
 
+            const actualUser = this.activeContactIndex;
+
             if(this.newMessage.length != 0 && this.newMessage.trim()) {
 
                 const newMessage = {
@@ -223,7 +225,7 @@ createApp({
                     message: this.newMessage,
                     status: `sent`
                 };
-                this.activeContactIndex.messages.push(newMessage);
+                actualUser.messages.push(newMessage);
                 this.newMessage = ``;
                 this.isTyping = false;
                 this.scrollToBottom();
@@ -235,7 +237,7 @@ createApp({
                         message: this.randomResponseArray[randomIndexResponse],
                         status: `received`
                     };
-                    this.activeContactIndex.messages.push(response);
+                    actualUser.messages.push(response);
                     this.scrollToBottom();
                     
             },Math.random() * 3000 + 1000);
