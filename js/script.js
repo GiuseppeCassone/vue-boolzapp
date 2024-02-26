@@ -260,7 +260,6 @@ createApp({
 
         // Funzione che permette di eliminare i messaggi
         deleteMessage(contact, messageIndex) {
-            console.log("index:", messageIndex)
             contact.messages.splice(messageIndex, 1)
         },
 

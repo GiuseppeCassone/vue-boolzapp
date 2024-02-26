@@ -73,9 +73,12 @@
                             <img class="me-2" :src="contact.avatar" :alt="contact.name">
                             <div class="d-flex flex-column flex-grow-1">
                                 <span class="fw-bold">{{ contact.name }}</span>
-                                <span class="my-span">{{ contact.messages[contact.messages.length - 1].message }}</span>
+                                <div v-if="contact.messages.length > 0">
+                                    <span class="my-span">{{ contact.messages[contact.messages.length - 1].message }}</span>
+                                    <span class="my-span last-hour">{{ getMessageTime(contact.messages[contact.messages.length - 1])}}</span>
+                                </div>
+                                <div v-else class="my-span">Nessun messaggio</div>
                             </div>
-                            <div><span class="my-span">{{ getMessageTime(contact.messages[contact.messages.length - 1])}}</span></div>
                         </div>
                        
                     </div>
@@ -106,7 +109,7 @@
                     <!-- SEZIONE CHAT CORRENTE -->
                     <div class="message-area p-5" ref="myScrollTarget" v-else>
 
-                        <div class="current-chat w-100 h-100">
+                        <template v-if="activeContactIndex && activeContactIndex.messages" class="current-chat w-100 h-100">
                             <div  v-for="(currentMessage, index) in activeContactIndex.messages" class="d-flex position-relative message-card" :class="currentMessage.status == `sent` ? ` justify-content-end ` : ` justify-content-start`">
                                 <p class="rounded-2 p-3 w-50 message-box" :class="currentMessage.status == `sent` ? ` sent` : ` received`">{{ currentMessage.message }}<span>{{ getMessageTime(currentMessage) }}</span></p>
                                 <div class="dropdown">
@@ -117,7 +120,7 @@
                                 </div>
                             </div>
 
-                        </div>
+                        </template>
                         
                         
                         <button type="button" @click="scrollToBottom()" class="btn btn-light rounded-2 my_scroll_btn"><i class="fa-solid fa-angles-down"></i></button>
