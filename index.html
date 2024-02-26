@@ -71,7 +71,7 @@
 
                         <div v-for="(contact, index) in filterChatName" @click="showConversation(index)" class="chat br-bottom d-flex p-3" :class="contact == activeContactIndex ? ` active` : ``">
                             <img class="me-2" :src="contact.avatar" :alt="contact.name">
-                            <div class="d-flex flex-column flex-grow-1">
+                            <div class="d-flex flex-column flex-grow-1 position-relative">
                                 <span class="fw-bold">{{ contact.name }}</span>
                                 <div v-if="contact.messages.length > 0">
                                     <span class="my-span">{{ contact.messages[contact.messages.length - 1].message }}</span>
