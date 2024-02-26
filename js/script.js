@@ -307,16 +307,7 @@ createApp({
 
         // Funzione per la dark-mode
         darkModeOption(){
-           document.querySelector("header").classList.toggle("dark-mode");
-           document.querySelector("#app").classList.toggle("dark-mode");
-           document.querySelector("body").classList.toggle("dark-mode");
-           document.querySelector(".my-container").classList.toggle("dark-mode");
-           document.querySelector(".chat-container").classList.toggle("dark-mode");
-           document.querySelector(".message-footer").classList.toggle("dark-mode");
-           document.getElementsByClassName(".sent").classList.toggle("dark-mode");
-           document.getElementsByClassName(".received").classList.toggle("dark-mode");
-           document.getElementsByClassName(".notices").classList.toggle("dark-mode");
-           document.getElementsByClassName(".fa-bell-slash").classList.toggle("dark-mode");
+        document.documentElement.classList.toggle('dark-mode');
         },
 
     },
