@@ -30,6 +30,8 @@
 
         <div class="my-container" v-show="!visibleSplash">
 
+            <button @click="darkModeOption" class="position-absolute p-1 rounded-2"><i class="fa-solid fa-circle-half-stroke"></i></button>
+
             <header></header>
 
             <main class="chat-container">
@@ -116,7 +118,7 @@
                     </div>
 
                     <!-- SEZIONE CON MESSAGGIO PREDEFINITO -->
-                    <div v-if="predefinedMessage == true" class="bg-light d-flex align-items-center justify-content-center default-message">
+                    <div v-if="predefinedMessage == true" class="flex-grow-1 d-flex align-items-center justify-content-center default-message">
                     </div>
                     <!-- SEZIONE CHAT CORRENTE -->
                     <div class="message-area p-5" ref="myScrollTarget" v-else>
