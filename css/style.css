@@ -142,7 +142,6 @@ header{
 }
 
 .chat{
-    /* background-color: white; */
     height: 100px;
 }
 
@@ -150,6 +149,12 @@ img{
     height: 100%;
     border-radius: 50%;
 }
+
+.chat-box .chat:last-child{
+    border-bottom: none;
+}
+
+/* COLONNA DESTRA */
 
 .col-right{
     width: 70%;
@@ -196,7 +201,7 @@ img{
 }
 
 .active{
-    background-color: grey;
+    background-color: rgb(183, 181, 181);
 }
 
 .message-box{
