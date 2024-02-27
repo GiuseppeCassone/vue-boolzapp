@@ -228,7 +228,7 @@ createApp({
 
             if(this.newMessage.length != 0 && this.newMessage.trim()) {
 
-                actualUser.status = 'sta scrivendo...';
+                actualUser.activity = 'sta scrivendo...';
 
                 const newMessage = {
                     date: new Date().toLocaleString(),
@@ -248,7 +248,7 @@ createApp({
                         status: `received`
                     };
                     actualUser.messages.push(response);
-                    actualUser.status = 'online';
+                    actualUser.activity = 'online';
                     this.scrollToBottom();
 
                     // Funzione che permette di visualizzare l'ultimo accesso dell'utente in chat
@@ -256,7 +256,7 @@ createApp({
                         const now = new Date();
                         const hours = now.getHours().toString().padStart(2, '0');
                         const minutes = now.getMinutes().toString().padStart(2, '0');
-                        actualUser.status = `ultimo accesso alle ${hours}:${minutes}`;
+                        actualUser.activity = `ultimo accesso alle ${hours}:${minutes}`;
                     }, 5000);
                     
             },Math.random() * 3000 + 1000);
