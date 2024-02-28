@@ -47,11 +47,19 @@
                             <h5 class="offcanvas-title" id="staticBackdropLabel">Nuova Chat</h5>
                         </div>
                         <hr>
-                        <div class="offcanvas-body">
+                        <div class="offcanvas-body p-0">
                           <div>
-                            <div class="input-group mb-3">
+                            <div class="input-group mb-3 p-2">
                                 <input type="text" @keyup.enter="addNewChat" v-model="newContact.name" class="form-control" placeholder="Username" aria-label="Aggiungi Contatto" aria-describedby="basic-addon1">
-                              </div>
+                            </div>
+                            <hr>
+                            <h5 class="p-2">I TUOI CONTATTI</h5>
+                            <div v-for="(contact, index) in filterChatName" @click="showConversation(index)" class="chat br-bottom d-flex p-1 p-lg-3" :class="contact == activeContactIndex ? ` active` : ``">
+                                <img class="me-2" :src="contact.avatar" :alt="contact.name">
+                                <div class="d-flex flex-column flex-grow-1 position-relative">
+                                    <span class="fw-bold">{{ contact.name }}</span>
+                                </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -92,7 +100,7 @@
 
                     <div class="chat-box">
 
-                        <div v-for="(contact, index) in filterChatName" @click="showConversation(index)" class="chat br-bottom d-flex p-3" :class="contact == activeContactIndex ? ` active` : ``">
+                        <div v-for="(contact, index) in filterChatName" @click="showConversation(index)" class="chat br-bottom d-flex p-1 p-lg-3" :class="contact == activeContactIndex ? ` active` : ``">
                             <img class="me-2" :src="contact.avatar" :alt="contact.name">
                             <div class="d-flex flex-column flex-grow-1 position-relative">
                                 <span class="fw-bold">{{ contact.name }}</span>
