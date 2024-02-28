@@ -196,6 +196,7 @@ createApp({
             activeContactIndex: {},
             newMessage: ``,
             searchBarText: ``,
+            newContact: { name: '', avatar: './img/default-avatar.jpg'},
             isTyping: false,
             predefinedMessage: true,
             visibleSplash: true,
@@ -263,6 +264,21 @@ createApp({
 
             }
            
+        },
+
+        // Funzione che permette di aggiungere una nuova chat
+        addNewChat() {
+            if(this.newContact.name.trim()) {
+                this.contacts.push({
+                    name: this.newContact.name,
+                    avatar: this.newContact.avatar,
+                    visible: true,
+                    activity: '',
+                    messages: []
+                });
+                this.newContact.name = '';
+                this.newContact.avatar = '';
+            }
         },
         
         // Funzione che permette di scrollare immediatamente al fondo della chat
